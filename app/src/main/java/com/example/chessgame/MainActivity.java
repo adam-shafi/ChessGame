@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean canWhiteCastle;
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public void buildGuiByCode() {
         Point size = new Point();
         getWindowManager().getDefaultDisplay().getSize(size);
@@ -137,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
         resetBackgrounds();
         setContentView(gridLayout);
     }
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public void update(int row, int col) {
         int[][] possibleMoves = chessGame.play(row, col, game[row][col]);
         for(int i=0;i<Chess.SIDE;i++){
@@ -307,7 +305,6 @@ public class MainActivity extends AppCompatActivity {
             pawn2.setForeground(getDrawable(R.mipmap.white_pawn));
         }
     }
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public void resetButtons(){
         for (int row = 0; row < Chess.SIDE; row++)
             for (int col = 0; col < Chess.SIDE; col++)
@@ -321,7 +318,6 @@ public class MainActivity extends AppCompatActivity {
             for(int c=0; c<Chess.SIDE;c++)
                 buttons[r][c].setEnabled(enabled);
     }
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void resetBackgrounds(){
         int i = 0;
         int p = 1;
@@ -343,7 +339,6 @@ public class MainActivity extends AppCompatActivity {
         alert.setNegativeButton("NO",playAgain);
         alert.show();
     }
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public void movePieces(int row, int col){
        if (game[row][col] == 1)
             buttons[row][col].setForeground(getDrawable(R.mipmap.black_pawn));
@@ -374,7 +369,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private class ButtonHandler implements View.OnClickListener {
-        @RequiresApi(api = Build.VERSION_CODES.M)
         public void onClick(View v) {
             for (int row = 0; row < Chess.SIDE; row++)
                 for (int column = 0; column < Chess.SIDE; column++)
@@ -384,7 +378,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private class PlayDialog implements DialogInterface.OnClickListener {
-        @RequiresApi(api = Build.VERSION_CODES.M)
         public void onClick (DialogInterface dialog, int id){
             if(id==-1) {
                 chessGame.resetGame();
